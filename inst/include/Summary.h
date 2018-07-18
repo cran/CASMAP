@@ -180,7 +180,8 @@ namespace SignificantPattern
         }
 
         inline longint getNumFeatureSetsTotal() const override {
-            return (longint) pow(2, getL());
+            return (longint) pow(  ((long double) 2), ((long double) getL())  );
+            //need to cast to long double, because pow(int, long int) not defined
         };
     };
 

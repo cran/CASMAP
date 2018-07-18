@@ -55,8 +55,9 @@ void SignificantFeaturesSearchTaroneCmh::execute_constructor_taronecmh() {
     // Initialise grid of candidate corrected significance thresholds
     double log10_p; unsigned short j;
     for(log10_p=0, j=0; j<=NGRID; log10_p-=log10_p_step, j++)
-        pgrid[j] = pow(10,log10_p);
+        pgrid[j] = pow( ((double)10.0),log10_p );
 
+    //NOTE: fix above 10->10.0, to support
     K = 0;
 
     freq_constructor();

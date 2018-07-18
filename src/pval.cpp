@@ -50,7 +50,10 @@ double chi2_pval(longint a, longint x, longint N, longint n, double class_ratio_
 {
     double aux, num, den;
     aux = ((double)x)/N;
-    num = a-n*aux; num = pow(num,2);
+    num = a-n*aux; 
+    //num = pow(num,2); //this is simply num squared
+    //need to replace pow, because pow(longint, int)
+    num = num*num;
     den = x*(1-aux)*class_ratio_bin;
     return Chi2_sf(num/den,1);
 }
@@ -59,7 +62,10 @@ double chi2_score(longint a, longint x, longint N, longint n, double class_ratio
 {
     double aux, num, den;
     aux = ((double)x)/N;
-    num = a-n*aux; num = pow(num,2);
+    num = a-n*aux; 
+    //num = pow(num,2); //this is simply num squared
+    //need to replace pow, because pow(longint, int)
+    num = num*num;
     den = x*(1-aux)*class_ratio_bin;
     return num/den;
 }
