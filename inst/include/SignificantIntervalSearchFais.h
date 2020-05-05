@@ -94,10 +94,10 @@ protected:
     void freq_constructor() override;
     void freq_destructor() override;
 
-    inline void saveSignificantInterval(double pval, double score, double odds_ratio, longint tau, longint l, longint a) {
+    inline void saveSignificantInterval(double pval, double score, double odds_ratio, longint tau, longint l, longint a) override {
         pValsSigInts.addFeature(tau, tau+l, a, score, odds_ratio, pval);
     }
-    inline void saveTestableInterval(double pval, double score, double odds_ratio, longint tau, longint l, longint a) {
+    inline void saveTestableInterval(double pval, double score, double odds_ratio, longint tau, longint l, longint a) override {
         pValsTestableInts.addFeature(tau, tau+l, a, score, odds_ratio, pval);
     }
 
